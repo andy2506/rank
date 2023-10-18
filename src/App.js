@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter, Routes, Route
+} from 'react-router-dom';
+import CardForm from './components/CreditCardForm';
+import Countries from './components/BannedCountries';
+import Cards from './components/CardsList';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="cover-container d-flex h-100 p-3 mx-auto flex-column">
+        <Navbar />
+        <Routes>
+            <Route path="/" element={<CardForm />} />
+            <Route path="/countries" element={<Countries />} />
+            <Route path="/cards" element={<Cards />} />
+        </Routes>
+      </div>
+      </BrowserRouter>
   );
 }
 
